@@ -1,5 +1,315 @@
 <!DOCTYPE html>
-<html>
-	<head></head>
-	<body></body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f7eded;
+        }
+
+        .hero {
+            height: 720px;
+            position: relative;
+            overflow: hidden;
+            background: #2d7b52;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            color: #fff;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f5c8d4;
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 28px;
+        }
+
+        .btn {
+            background: #f5c8d4;
+            color: #000 !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .photo {
+            position: absolute;
+            left: 85px;
+            top: 110px;
+            width: 430px;
+            height: 430px;
+            background: #bbb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px; /* Optional: tiny rounding for a softer look */
+        }
+
+        /* --- CLEANER PORTFOLIO TEXT --- */
+        .portfolio {
+            position: absolute;
+            top: 45px; /* Tucked cleanly over the top edge of the photo */
+            left: 120px; /* Pulled slightly left */
+            font-family: 'Playfair Display', serif;
+            font-size: 110px;
+            font-weight: 900;
+            letter-spacing: 5px; /* Adds breathing room for a high-end look */
+            color: #f5c8d4; /* Matched the button/logo pink */
+            z-index: 5;
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.15); /* Subtle shadow to lift it off the photo */
+        }
+
+        .watermark {
+            position: absolute;
+            top: 105px;
+            right: 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: 125px;
+            font-weight: 900;
+            line-height: .8;
+            text-align: right;
+        }
+
+        .watermark div:nth-child(1) { color: rgba(255, 255, 255, 0.16); }
+        .watermark div:nth-child(2) { color: rgba(255, 255, 255, 0.09); }
+        .watermark div:nth-child(3) { color: rgba(255, 255, 255, 0.04); }
+        .watermark div:nth-child(4) { color: rgba(255, 255, 255, 0.01); }
+
+        /* --- REDESIGNED ROLES CLASS --- */
+        .roles {
+            position: absolute;
+            top: 250px;
+            left: 560px; /* Pushed into the negative space between photo and watermark */
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase; /* Makes it look like modern tags */
+            letter-spacing: 3px;
+            line-height: 4.5;
+            z-index: 6;
+        }
+
+        /* Adds a clean, aesthetic horizontal line next to each role */
+        .roles div {
+            position: relative;
+            padding-left: 45px; 
+        }
+
+        .roles div::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 1px;
+            background-color: #f5c8d4; /* Pink accent line */
+        }
+
+        .caption {
+            position: absolute;
+            left: 40px;
+            top: 570px;
+            width: 430px;
+            font-size: 11px;
+            color: #fff;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+        }
+
+        .star1, .star2, .star3 {
+            position: absolute;
+            color: #ff3f9c;
+        }
+
+        .star1 { left: 60px; top: 145px; font-size: 55px; }
+        .star2 { left: 70px; top: 205px; font-size: 35px; }
+        .star3 { left: 335px; top: 515px; font-size: 70px; }
+
+        .scroll {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #cde5c8;
+            margin: -60px auto -60px auto; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .about {
+            padding: 80px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #f7eded;
+        }
+
+        .left h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 78px;
+            line-height: .95;
+            color: #163624;
+            margin-bottom: 25px;
+        }
+
+        .left p {
+            max-width: 520px;
+            line-height: 1.5;
+        }
+
+        .card {
+            width: 360px;
+            background: #163624;
+            color: #fff;
+            position: relative;
+        }
+
+        .cardimg {
+            height: 300px;
+            background: #bbb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .date {
+            position: absolute;
+            top: 55px;
+            left: -35px;
+            background: #f5c8d4;
+            color: #333;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+        }
+
+        .nation {
+            position: absolute;
+            right: -20px;
+            top: 250px;
+            background: #f5c8d4;
+            color: #333;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 30px 20px;
+            background: #000000; 
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .contact p {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <nav>
+            <div class="logo">
+                <span>S</span> Sophia Varela
+            </div>
+            <div class="links">
+                <a href="index.html">About Me</a>
+                <a href="resume.html">Resume</a>
+                <a href="contactme.html" class="btn">Get in Touch!</a>
+            </div>
+        </nav>
+
+        <div class="photo">PLACEHOLDER IMAGE</div>
+        <div class="portfolio">PORTFOLIO</div>
+
+        <div class="watermark">
+            <div>PORTFOLIO</div>
+            <div>PORTFOLIO</div>
+            <div>PORTFOLIO</div>
+            <div>PORTFOLIO</div>
+        </div>
+
+        <div class="roles">
+            <div>Web Developer</div>
+            <div>Web Designer</div>
+            <div>Graphics Designer</div>
+        </div>
+
+        <div class="caption">
+            I love designing and creating new things in the digital world. Bringing ideas to life through creativity and innovation is a passion of mine. Each project gives me an opportunity to learn, improve, and express my unique perspective.
+        </div>
+
+        <div class="star1">✦</div>
+        <div class="star2">✦</div>
+        <div class="star3">✦</div>
+    </section>
+
+    <div class="scroll">
+        SCROLL<br>DOWN
+    </div>
+
+    <section class="about">
+        <div class="left">
+            <h1>Hello,<br>I'm Sophia !</h1>
+            <p>I'm a digital creator specializing in web development, interface design, and graphics. I thrive on solving logical problems behind the scenes while maintaining a strong eye for modern aesthetics on the front end.</p>
+        </div>
+
+        <div class="card">
+            <div class="date">11 / 04 / 2004</div>
+            <div class="cardimg">PROFILE IMAGE</div>
+            <div class="nation">Filipino</div>
+            <div class="contact">
+                <h2>CONTACT</h2>
+                <p>📍 Philippines, Bacolod City</p>
+                <p>✉ akishinomika5@gmail.com</p>
+                <p>📞 +63 933 243 1122</p>
+            </div>
+        </div>
+    </section>
+
+</body>
 </html>
