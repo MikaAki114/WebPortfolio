@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia Varela - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #fdf3f5; 
+            color: #163624;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            background: #2a724d; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 60px;
+            color: #fff;
+            position: relative;
+            z-index: 20;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo span {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f7cbd6;
+            color: #163624;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 20px;
+        }
+
+        .links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 32px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .btn {
+            background: #f7cbd6;
+            color: #163624 !important;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-weight: 700;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            width: 100%;
+            margin: auto;
+            padding: 0 60px 80px 60px;
+            position: relative;
+            flex-grow: 1;
+        }
+
+        .photo {
+            width: 45%;
+            max-width: 500px;
+            aspect-ratio: 1 / 1; 
+            border-radius: 24px; 
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 3;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .right-hero-group {
+            width: 50%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .watermark {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(60px, 8vw, 120px);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: 2px;
+            z-index: 1;
+            margin-left: -40px;
+        }
+
+        .watermark div:nth-child(1) { color: #f7cbd6; } 
+        .watermark div:nth-child(2) { color: rgba(255, 255, 255, 0.22); }
+        .watermark div:nth-child(3) { color: rgba(255, 255, 255, 0.12); }
+        .watermark div:nth-child(4) { color: rgba(255, 255, 255, 0.05); }
+
+        .roles {
+            margin-top: 30px;
+            margin-left: -40px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 2;
+            z-index: 5;
+        }
+
+        .roles div {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .roles div::after {
+            content: '✦';
+            color: #f7cbd6;
+            font-size: 16px;
+        }
+        
+        .roles div:last-child::after {
+            content: ''; 
+        }
+
+        .scroll {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #a9caa1; 
+            margin: -60px auto -60px auto; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 15;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 12px;
+            color: #163624;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            line-height: 1.3;
+        }
+
+        .about {
+            padding: 120px 60px 80px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fdf3f5;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 60px;
+        }
+
+        .left {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .left h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(45px, 5vw, 75px);
+            font-weight: 900;
+            line-height: 0.95;
+            color: #163624;
+            margin-bottom: 25px;
+        }
+
+        .left p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2b4735;
+        }
+
+        .card {
+            width: 350px;
+            background: #000000;
+            color: #fff;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .cardimg {
+            width: 100%;
+            aspect-ratio: 1.1 / 1;
+            overflow: hidden;
+            background: #333;
+        }
+
+        .cardimg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .date {
+            position: absolute;
+            top: 40%;
+            left: -45px;
+            background: #f7cbd6;
+            color: #163624;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 13px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .nation {
+            position: absolute;
+            right: -30px;
+            bottom: 30%;
+            background: #f7cbd6;
+            color: #163624;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 13px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .contact {
+            text-align: center;
+            padding: 25px 20px;
+            background: #000000; 
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .contact p {
+            margin: 8px 0;
+            font-size: 13px;
+            color: #cccccc;
+        }
+
+        .projects-section {
+            background-color: #83a281; 
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        .projects-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 4vw, 60px);
+            font-weight: 900;
+            color: #163624;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        .projects-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+       .project-card {
+            flex: 1;
+            min-width: 280px;
+            max-width: 340px;
+            aspect-ratio: 1 / 1.4;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .project-card img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <nav>
+            <div class="logo">
+                <span>S</span> Sophia Varela
+            </div>
+            <div class="links">
+                <a href="index.html">About Me</a>
+                <a href="resume.html">Resume</a>
+                <a href="contactme.html" class="btn">Get in Touch!</a>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <div class="photo">
+                <img src="soph.jpg" alt="Sophia Varela">
+            </div>
+
+            <div class="right-hero-group">
+                <div class="watermark">
+                    <div>PORTFOLIO</div>
+                    <div>PORTFOLIO</div>
+                    <div>PORTFOLIO</div>
+                    <div>PORTFOLIO</div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <div class="scroll">
+        SCROLL<br>DOWN
+    </div>
+
+    <section class="about">
+        <div class="left">
+            <h1>Hello,<br>I'm Sophia !</h1>
+            <p>I'm a digital creator specializing in web development, interface design, and graphics. I thrive on solving logical problems behind the scenes while maintaining a strong eye for modern aesthetics on the front end. Whether I'm designing a fresh layout or structuring a robust system, I always aim for excellence.</p>
+        </div>
+
+        <div class="card">
+            <div class="date">11 / 04 / 2004</div>
+            <div class="cardimg">
+                <img src="soph2.png" alt="Sophia Detail View">
+            </div>
+            <div class="nation">Filipino</div>
+            <div class="contact">
+                <h2>CONTACT</h2>
+                <p>Philippines, Bacolod City</p>
+                <p>akishinomika5@gmail.com</p>
+                <p>+63 933 243 1122</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section">
+    <h2>PROJECTS</h2>
+
+    <div class="projects-grid">
+
+        <div class="project-card">
+            <img src="shirtproj.jpg" alt="Project 1">
+        </div>
+
+        <div class="project-card">
+            <img src="keyproj.jpg" alt="Project 2">
+        </div>
+
+        <div class="project-card">
+            <img src="pubmat.jpg" alt="Project 3">
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>
