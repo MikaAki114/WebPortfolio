@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia Varela - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --dark-green: #173722;
+            --light-green: #44835A;
+            --pink-accent: #FA75A7;
+            --pale-pink: #FEE3E8;
+            --white: #FFFFFF;
+        }
+
+         * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-green);
+            color: var(--pale-pink);
+            overflow-x: hidden;
+        }
+
+        header {
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 60px;
+            color: var(--pale-pink);
+            position: relative;
+            z-index: 20;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+       .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo span {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f7cbd6;
+            color: #163624;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 20px;
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+        }
+
+        .links a {
+            color: var(--pale-pink);
+            text-decoration: none;
+            margin-left: 32px;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: 'DM Sans', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .links a:hover:not(.btn) {
+            color: var(--pink-accent);
+        }
+
+        .btn {
+            background: var(--pink-accent);
+            color: var(--dark-green) !important;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-weight: 700;
+            transition: transform 0.2s ease, opacity 0.3s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        .inner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 40px; 
+        }
+
+        .top-section {
+            background-color: var(--dark-green);
+            padding: 20px 0 40px 0; 
+        }
+
+        .bottom-section {
+            background-color: var(--light-green);
+            padding: 60px 0 100px 0;
+        }
+
+        .top-grid, .bottom-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            margin-top: 40px;
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 48px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }    
+
+        .timeline-item {
+            position: relative;
+            display: flex;
+            gap: 30px;
+            margin-bottom: 35px;
+        }
+
+        .timeline-item::after {
+            content: '✦';
+            position: absolute;
+            left: -32px;
+            top: -2px;
+            font-size: 22px;
+        }
+
+        .year {
+            font-size: 22px;
+            font-weight: 300;
+            white-space: nowrap;
+            width: 130px;
+        }
+
+        .details h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .details p {
+            font-size: 14px;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        .education .timeline::before { background-color: var(--pink-accent); }
+        .education .timeline-item::after { color: var(--pink-accent); }
+
+        .credentials-box {
+            background-color: var(--pink-accent);
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .credentials-box h2 {
+            color: var(--dark-green);
+            margin-bottom: 35px;
+        }
+
+        .credentials-box .timeline::before { background-color: var(--white); opacity: 0.5; }
+        .credentials-box .timeline-item::after { color: var(--white); }
+        .credentials-box .year { color: var(--white); opacity: 0.9; }
+        .credentials-box .details h4 { color: var(--white); }
+        .credentials-box .details p { color: var(--white); opacity: 0.9; }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .tag {
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--white);
+            background-color: var(--light-green);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .software-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            max-width: 200px;
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background-color: #E0E0E0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-weight: 600;
+            font-size: 18px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .coding-skills p {
+            font-size: 14px;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .coding-lists {
+            display: flex;
+            gap: 40px;
+        }
+
+        .coding-col {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 300;
+            opacity: 0.85;
+        }
+
+        .language-section, .hobbies-section {
+            margin-bottom: 50px;
+        }
+
+        .pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .pill {
+            background-color: var(--pale-pink);
+            color: var(--dark-green);
+            padding: 10px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #FDE6EA, #F9A4C0);
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+
+        .pill-hobby {
+            padding: 10px 24px;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                padding: 24px 40px;
+            }
+            .top-grid, .bottom-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .inner-container {
+                padding: 0 20px;
+            }
+            .credentials-box {
+                padding: 30px;
+            }
+        }
+
+        @media(max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <span>S</span> Sophia Varela
+            </div>
+            <div class="links">
+                <a href="index.html">About Me</a>
+                <a href="resume.html">Resume</a>
+                <a href="contactme.html" class="btn">Get in Touch!</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="top-section">
+        <div class="inner-container">
+            <main class="top-grid">
+
+                <section class="education">
+                    <h2>EDUCATION</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="year">2012 - 2017</div>
+                            <div class="details">
+                                <h4>Colegio San Agustin</h4>
+                                <p>Grade 1 to Grade 4</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="year">2017 - 2023</div>
+                            <div class="details">
+                                <h4>Christian Academy of Bacolod</h4>
+                                <p>Grade 5 to Grade 10</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="year">2023 - 2025</div>
+                            <div class="details">
+                                <h4>University of St. La Salle, BEU</h4>
+                                <p>Senior High</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="year">2025 - 2026</div>
+                            <div class="details">
+                                <h4>University of St. La Salle, HEU</h4>
+                                <p>Freshmen Year</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tech-skills">
+                    <h2>TECHNICAL SKILLS</h2>
+                    <div class="skills-grid">
+                        <div class="software-skills">
+                            <h3>SOFTWARE SKILLS</h3>
+                            <div class="software-icons">
+                                <div class="icon-box">Ps</div>
+                                <div class="icon-box">Ai</div>
+                                <div class="icon-box">Ae</div>
+                                <div class="icon-box">Id</div>
+                                <div class="icon-box">Pr</div>
+                            </div>
+                        </div>
+
+                        <div class="coding-skills">
+                            <h3>CODING SKILLS</h3>
+                            <p>Basic Knowledge of :</p>
+                            <div class="coding-lists">
+                                <div class="coding-col">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JavaScript</span>
+                                </div>
+                                <div class="coding-col">
+                                    <span>C++</span>
+                                    <span>SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <div class="bottom-section">
+        <div class="inner-container">
+            <div class="bottom-grid">
+
+                <section class="credentials-box">
+                    <h2>CREDENTIALS</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="year">2023 - 2024</div>
+                            <div class="details">
+                                <h4>DPR Jr. Commissioner</h4>
+                                <p>House of Rheims, USLS</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="year">2024 - 2025</div>
+                            <div class="details">
+                                <h4>Department Head of PR</h4>
+                                <p>House of Rheims, USLS</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="year">2025 - 2026</div>
+                            <div class="details">
+                                <h4>Executive Secretary</h4>
+                                <p>Rektikano Esports League, USLS</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="year">2026 - 2027</div>
+                            <div class="details">
+                                <h4>Executive President</h4>
+                                <p>Rektikano Esports League, USLS</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tags">
+                        <span class="tag">#Creativity</span>
+                        <span class="tag">#LovePublicRelations</span>
+                        <span class="tag">#Detail-oriented</span>
+                        <span class="tag">#Leadership</span>
+                    </div>
+                </section>
+
+                <div class="right-bottom-column">
+                    <section class="language-section">
+                        <h2>LANGUAGE</h2>
+                        <div class="pill-container">
+                            <div class="pill">English</div>
+                            <div class="pill">Filipino</div>
+                        </div>
+                    </section>
+
+                    <section class="hobbies-section">
+                        <h2>HOBBIES & INTERESTS</h2>
+                        <div class="pill-container">
+                            <div class="pill pill-hobby">Painting</div>
+                            <div class="pill pill-hobby">Graphic Design</div>
+                            <div class="pill pill-hobby">Cooking/Baking</div>
+                            <div class="pill pill-hobby">Gaming</div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
